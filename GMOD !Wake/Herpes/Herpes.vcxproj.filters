@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\games">
+      <UniqueIdentifier>{8b70b6ba-0a7d-4506-97d3-58c814fea5dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\games\css">
+      <UniqueIdentifier>{014d24e6-71c4-44c0-ac4d-4168f4d823c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\base">
+      <UniqueIdentifier>{d355e608-8b52-4216-9d0f-dbdb92ed22ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\games\gmod">
+      <UniqueIdentifier>{f60b8c66-6f03-4a9f-bb10-db9af9bcca4b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="vmthook.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="css_esp.h">
+      <Filter>Source Files\games\css</Filter>
+    </ClInclude>
+    <ClInclude Include="css_offsets.h">
+      <Filter>Source Files\games\css</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="drawing.h">
+      <Filter>Source Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="entity.h">
+      <Filter>Source Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="css_material.h">
+      <Filter>Source Files\games\css</Filter>
+    </ClInclude>
+    <ClInclude Include="cvars.h">
+      <Filter>Source Files\games</Filter>
+    </ClInclude>
+    <ClInclude Include="css_aimbot.h">
+      <Filter>Source Files\games\css</Filter>
+    </ClInclude>
+    <ClInclude Include="css_misc.h">
+      <Filter>Source Files\games\css</Filter>
+    </ClInclude>
+    <ClInclude Include="css_firebullets.h">
+      <Filter>Source Files\games\css</Filter>
+    </ClInclude>
+    <ClInclude Include="css_nospread.h">
+      <Filter>Source Files\games\css</Filter>
+    </ClInclude>
+    <ClInclude Include="guibase.h">
+      <Filter>Source Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="gmod_offsets.h">
+      <Filter>Source Files\games\gmod</Filter>
+    </ClInclude>
+    <ClInclude Include="Steam.h">
+      <Filter>Source Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="hSDK.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="crc32.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Antileak.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="antileak_noerror.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="hSDK.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="crc32.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Antileak.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
