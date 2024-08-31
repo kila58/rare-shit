@@ -1,0 +1,12 @@
+/*returns pointer to pre-hook function*/
+/*pVTBL: vtable of the class, dwIdx: virtual function index you want to hook, pNewFunc: address of your function*/
+/*returns the pointer(aka address) of the original function*/
+MH_FUNC MH_VTBLHook(MH_VTBL pVTBL, DWORD dwIdx, MH_FUNC pNewFunc)
+{
+        MH_FUNC pOrigFunc; DWORD dwOldProt;
+        VirtualProtect((void*)&pVTBL[dwIdx], 4, PAGE_READWRITE, &dwOldProt);
+        pOrigFunc = (BYTE*)pVTBL[dwIdx]; //save old function
+        pVTBL[dwIdx] = (DWORD)pNewFunc; //set VTBL entry to new function
+        VirtualProtect((void*)&pVTBL[dwIdx], 4, dwOldProt, NULL);
+        return pOrigFunc;
+}

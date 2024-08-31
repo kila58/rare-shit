@@ -1,0 +1,120 @@
+;NOTE: 32 bit (4 byte) floating point ("float" type in C/C++
+
+;call like:
+;push youX
+;push enmX
+;push youY
+;push enmY
+;push youZ
+;push enmZ
+;call CalcAngles
+;eax = pitch
+;ebx = yaw
+;ecx = roll
+
+;=================CalcAngles===by=CaptMicro================
+CalcAngles:
+	;pre-calculate radian -> degree conversion factor
+	;edx = 180 / pi [deg = rad * (180 / pi)]
+	fldpi 
+	mov edx, 180
+	push edx
+	fild [ebp] ;load 180 into st0
+	pop edx
+	fdivp ;factor = 180 / pi
+	push edx
+	fstp [ebp]; store 180/pi in edx
+	pop edx
+	
+	;X position
+	fld [ebp + 0x08] ;enmX
+	fld [ebp + 0x04] ;youX
+	fsubp ;deltaX = youX - enmX
+	fst [ebp + 0x04] ;store deltaX in youX
+	fld st(0) ;duplicate deltaX
+	fmulp ;sqrtX = deltaX * deltaX
+	fstp [ebp + 0x08]; store sqrtX in enmX
+	
+	;Y position
+	fld [ebp + 0x10] ;enmY
+	fld [ebp + 0x0C] ;youY
+	fsubp ;deltaY = youX - enmY
+	fst [ebp + 0x0C] ;store deltaY in youY
+	fld st(0) ;duplicate deltaY
+	fmulp ;sqrtY = deltaY * deltaY
+	fstp [ebp + 0x10]; store sqrtY in enmY
+	
+	;Z position
+	fld [ebp + 0x18] ;enmZ
+	fld [ebp + 0x14] ;youZ
+	fsubp ;deltaZ = youZ - enmZ
+	fstp [ebp + 0x14] ;store deltaZ in youZ
+	
+	;hypotenuse of X/Y point AND pitch
+	fld [ebp + 0x08] ;sqrtX
+	fld [ebp + 0x10] ;sqrtY
+	faddp
+	fsqrt
+	fstp [ebp + 0x18]; store hypXY in enmZ
+	;-below is ARCSINE (inverse sine) implementation
+	fld     st(0)           ;Duplicate X on tos.
+	fmul                    ;Compute X**2.
+	fld     st(0)           ;Duplicate X**2 on tos.
+	fld1                    ;Compute 1-X**2.
+	fsubr
+	fdiv                    ;Compute X**2/(1-X**2).
+	fsqrt                   ;Compute sqrt(x**2/(1-X**2)).
+	fld1                    ;To compute full arctangent.
+	fpatan                  ;Compute atan of the above.
+	;-convert pitch in radians to degrees
+	push edx
+	fild [ebp] ;load 180/pi into st0
+	pop edx
+	fmulp ;degrees = radians * (180 / pi)
+	push eax
+	fstp [ebp] ;store pitch angle in EAX
+	pop eax
+	
+	;Yaw angle
+	fld [ebp + 0x0C] ;deltaY
+	fld [ebp + 0x04] ;deltaX
+	fpatan ;partial arc tangent of st1/st0 (deltaY/deltaX)
+	;-convert yaw in radians to degrees
+	push edx
+	fild [ebp] ;load 180/pi into st0
+	pop edx
+	fmulp ;degrees = radians * (180 / pi)
+	push ebx
+	fstp [ebp] ;store yaw angle in EBX
+	pop ebx
+	
+	;Roll angle (zero)
+	xor ecx, ecx
+	
+	;And zero out EDX
+	xor edx, edx
+	
+	;return to caller
+	ret
+;=================CalcAngles===by=CaptMicro================
+
+;HOW TO USE IN C/C++ WITH INLINE ASSEMBLY
+;//these should be set before calling CalcAngles
+;float youX, youY, youZ;
+;float enmX, enmY, enmZ;
+;//these are the results after CalcAngles is called
+;float angP = 0.0f, angY = 0.0f, angR = 0.0f;
+;__asm {;
+;	push youX
+;	push enmX
+;	push youY
+;	push enmY
+;	push youZ
+;	push enmZ
+;	call CalcAngles
+;	mov angP, eax
+;	mov angY, ebx
+;	mov angR, ecx
+;};
+;//now use the angles for something useful
+;SetViewAngles(.....)

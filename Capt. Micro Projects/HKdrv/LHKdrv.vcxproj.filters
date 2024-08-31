@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source files">
+      <UniqueIdentifier>{40cbdf4f-7ff9-4d8a-a3be-09b6f23d03a0}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Resource files">
+      <UniqueIdentifier>{d6ae4b2f-4f21-4c6e-be36-5cb60cd286c8}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Header files">
+      <UniqueIdentifier>{7c3f63f8-fa52-471f-94b7-77a314700deb}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="helpers.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="adetours.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="LHKdrv.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="kitapi.h">
+      <Filter>Header files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="LHKdrv.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="helpers.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="adetours.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="kitapi.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+    <ClCompile Include="microvm.cpp">
+      <Filter>Source files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="eprocess.txt" />
+  </ItemGroup>
+</Project>
