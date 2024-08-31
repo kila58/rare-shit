@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Quelldateien">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Headerdateien">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Ressourcendateien">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Cheat">
+      <UniqueIdentifier>{25e07d05-73a8-4e5d-a4ca-ca1eab0e4d8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cheat\CVarSystem">
+      <UniqueIdentifier>{2fd6395d-43b2-4e89-9866-f8fc1d142c51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hooks">
+      <UniqueIdentifier>{dbe9dc14-151d-443d-9621-938266b1cbb0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ValveSDK">
+      <UniqueIdentifier>{330ae90e-b08c-4b02-9359-69692d7c90e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cheat\Misc">
+      <UniqueIdentifier>{e096db75-7fe3-4a0e-b8d2-af4a5c25ad6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cheat\Visuals">
+      <UniqueIdentifier>{b777f96b-c00e-4551-9d8e-a2c5cedd72c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cheat\Aimbot">
+      <UniqueIdentifier>{fe214b4e-cddb-49bf-8a36-0203379a1d1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hooks\CreateMove">
+      <UniqueIdentifier>{c82fbf0d-3335-4669-8060-3429298ed4e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hooks\FrameStageNotify">
+      <UniqueIdentifier>{d2f374b6-eae9-4c2c-af40-089e4ed37e11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hooks\HudUpdate">
+      <UniqueIdentifier>{94d75ecb-ef2a-4802-a2c2-a2b97493f427}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hooks\KeyEvent">
+      <UniqueIdentifier>{8ef6707e-798a-4efb-990a-9fecf785f818}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hooks\RunCommand">
+      <UniqueIdentifier>{01057b0c-2634-4356-92db-6acb6ad5e91c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hooks\PaintTraverse">
+      <UniqueIdentifier>{d069ca08-7acc-4368-b6fe-37a07d804380}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cheat\GameEvents">
+      <UniqueIdentifier>{efdd75ed-2754-459d-916b-60b23fdec595}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hooks\DrawModelExecute">
+      <UniqueIdentifier>{5884ba18-c5b3-4adc-bdae-5c038f4b7860}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cheat\GUI">
+      <UniqueIdentifier>{7c29bba0-cb3f-4c16-8921-ef3e88c3c88c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DllMain.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="checksum_crc.cpp">
+      <Filter>ValveSDK</Filter>
+    </ClCompile>
+    <ClCompile Include="CVarSystem.cpp">
+      <Filter>Cheat\CVarSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK.cpp">
+      <Filter>ValveSDK</Filter>
+    </ClCompile>
+    <ClCompile Include="NetVars.cpp">
+      <Filter>ValveSDK</Filter>
+    </ClCompile>
+    <ClCompile Include="Offsets.cpp">
+      <Filter>ValveSDK</Filter>
+    </ClCompile>
+    <ClCompile Include="Misc.cpp">
+      <Filter>Cheat\Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="Visuals.cpp">
+      <Filter>Cheat\Visuals</Filter>
+    </ClCompile>
+    <ClCompile Include="Aimbot.cpp">
+      <Filter>Cheat\Aimbot</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateMove.cpp">
+      <Filter>Hooks\CreateMove</Filter>
+    </ClCompile>
+    <ClCompile Include="FrameStageNotify.cpp">
+      <Filter>Hooks\FrameStageNotify</Filter>
+    </ClCompile>
+    <ClCompile Include="HudUpdate.cpp">
+      <Filter>Hooks\HudUpdate</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyEvent.cpp">
+      <Filter>Hooks\KeyEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="PaintTraverse.cpp">
+      <Filter>Hooks\PaintTraverse</Filter>
+    </ClCompile>
+    <ClCompile Include="RunCommand.cpp">
+      <Filter>Hooks\RunCommand</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEvents.cpp">
+      <Filter>Cheat\GameEvents</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Headerdateien</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawModelExecute.cpp">
+      <Filter>Hooks\DrawModelExecute</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Cheat\GUI</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK.h">
+      <Filter>ValveSDK</Filter>
+    </ClInclude>
+    <ClInclude Include="const.h">
+      <Filter>ValveSDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CVMTHookManager.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.h">
+      <Filter>ValveSDK</Filter>
+    </ClInclude>
+    <ClInclude Include="dt_common2.h">
+      <Filter>ValveSDK</Filter>
+    </ClInclude>
+    <ClInclude Include="dt_recv2.h">
+      <Filter>ValveSDK</Filter>
+    </ClInclude>
+    <ClInclude Include="checksum_crc.h">
+      <Filter>ValveSDK</Filter>
+    </ClInclude>
+    <ClInclude Include="CVarSystem.h">
+      <Filter>Cheat\CVarSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="NetVars.h">
+      <Filter>ValveSDK</Filter>
+    </ClInclude>
+    <ClInclude Include="Offsets.h">
+      <Filter>ValveSDK</Filter>
+    </ClInclude>
+    <ClInclude Include="Misc.h">
+      <Filter>Cheat\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="Visuals.h">
+      <Filter>Cheat\Visuals</Filter>
+    </ClInclude>
+    <ClInclude Include="Aimbot.h">
+      <Filter>Cheat\Aimbot</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateMove.h">
+      <Filter>Hooks\CreateMove</Filter>
+    </ClInclude>
+    <ClInclude Include="FrameStageNotify.h">
+      <Filter>Hooks\FrameStageNotify</Filter>
+    </ClInclude>
+    <ClInclude Include="HudUpdate.h">
+      <Filter>Hooks\HudUpdate</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyEvent.h">
+      <Filter>Hooks\KeyEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="PaintTraverse.h">
+      <Filter>Hooks\PaintTraverse</Filter>
+    </ClInclude>
+    <ClInclude Include="RunCommand.h">
+      <Filter>Hooks\RunCommand</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEvents.h">
+      <Filter>Cheat\GameEvents</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawModelExecute.h">
+      <Filter>Hooks\DrawModelExecute</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Cheat\GUI</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
