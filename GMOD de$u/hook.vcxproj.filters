@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Tools">
+      <UniqueIdentifier>{3f8fecbb-8595-46c9-bda2-be54da7571b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entrypoint">
+      <UniqueIdentifier>{a6a556a4-186d-4db5-b102-9b21c1fa5463}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Hooks">
+      <UniqueIdentifier>{a4884fa1-f295-43fa-aa5d-b321a40ed112}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Aimbot">
+      <UniqueIdentifier>{1c7e2612-978f-4900-aa63-126900b1c8c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Features">
+      <UniqueIdentifier>{f68c9d3f-6590-405c-b32d-bbf1c5fdafe2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Client">
+      <UniqueIdentifier>{a8a10e25-4c0d-448d-978d-c8ae73980deb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Menu">
+      <UniqueIdentifier>{30a6422f-ef08-4b21-a5ff-c2e814ef06d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AntiLeak">
+      <UniqueIdentifier>{e0218734-8f3e-4aae-90da-59a71d1cf2f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils">
+      <UniqueIdentifier>{2f2db494-dc07-486b-b6c7-93a98b2e9fd8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="sdk\vec.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\tools.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\classes.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\structs.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\sdk.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Entrypoint.h">
+      <Filter>Entrypoint</Filter>
+    </ClInclude>
+    <ClInclude Include="PaintTraverse.h">
+      <Filter>Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="Sigscan.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Aimbot.h">
+      <Filter>Aimbot</Filter>
+    </ClInclude>
+    <ClInclude Include="speed.h">
+      <Filter>Features</Filter>
+    </ClInclude>
+    <ClInclude Include="hooks.h">
+      <Filter>Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="client.h">
+      <Filter>Client</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Bhop.h">
+      <Filter>Features</Filter>
+    </ClInclude>
+    <ClInclude Include="GetUserCmd.h">
+      <Filter>Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="WriteUserCmdDelta.h">
+      <Filter>Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="crc.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateMove.h">
+      <Filter>Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="spreads.h">
+      <Filter>Features</Filter>
+    </ClInclude>
+    <ClInclude Include="GetLuaState.h">
+      <Filter>Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="FakeLag.h">
+      <Filter>Features</Filter>
+    </ClInclude>
+    <ClInclude Include="md5.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Entrypoint.cpp">
+      <Filter>Entrypoint</Filter>
+    </ClCompile>
+    <ClCompile Include="md5.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
