@@ -1,0 +1,2 @@
+if(new_Menu.CvarList.VisualVars.WeaponESP)
+							gNeeded.PrintText(vScreen.x-10, vScreen.y+20, colour, "%s", m_szPrintName );

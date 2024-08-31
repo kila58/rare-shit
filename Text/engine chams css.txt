@@ -1,0 +1,106 @@
+#include "IVModelRender.h"
+
+IMaterial* g_pTextureRed;
+IMaterial* g_pTextureYellow;
+IMaterial* g_pTextureBlue;
+IMaterial* g_pTextureGreen;
+IMaterial* g_pTextureWhite;
+IMaterial* g_pTextureWhite2;
+
+CVMTHook gDrawModelExHook;
+int   __stdcall new_DrawModelEx( ModelRenderInfo_t &pInfo )
+{
+   if(g_pTextureRed == NULL)
+      g_pTextureRed = gCheat.m_pMaterialSystem->FindMaterial("models\\textures\\Red", TEXTURE_GROUP_MODEL);
+   if(g_pTextureYellow == NULL)
+      g_pTextureYellow = gCheat.m_pMaterialSystem->FindMaterial("models\\textures\\Yellow", TEXTURE_GROUP_MODEL);
+   else
+   {
+      if(g_pTextureYellow->GetMaterialVarFlag(MATERIAL_VAR_IGNOREZ) == FALSE)
+         g_pTextureYellow->SetMaterialVarFlag(MATERIAL_VAR_IGNOREZ, TRUE);
+   }
+   if(g_pTextureBlue == NULL)
+      g_pTextureBlue = gCheat.m_pMaterialSystem->FindMaterial("models\\textures\\Blue", TEXTURE_GROUP_MODEL);
+   if(g_pTextureGreen == NULL)
+      g_pTextureGreen = gCheat.m_pMaterialSystem->FindMaterial("models\\textures\\Green", TEXTURE_GROUP_MODEL);
+   else
+   {
+      if(g_pTextureGreen->GetMaterialVarFlag(MATERIAL_VAR_IGNOREZ) == FALSE)
+         g_pTextureGreen->SetMaterialVarFlag(MATERIAL_VAR_IGNOREZ, TRUE);
+   }
+   if(g_pTextureWhite == NULL)
+      g_pTextureWhite = gCheat.m_pMaterialSystem->FindMaterial("models\\textures\\White", TEXTURE_GROUP_MODEL);
+   if(g_pTextureWhite2 == NULL)
+      g_pTextureWhite2 = g_pTextureWhite;
+   else
+   {
+      if(g_pTextureWhite2->GetMaterialVarFlag(MATERIAL_VAR_IGNOREZ) == FALSE)
+         g_pTextureWhite2->SetMaterialVarFlag(MATERIAL_VAR_IGNOREZ, TRUE);
+   }
+
+   gDrawModelExHook.UnHook();
+   if( pInfo.pModel )
+   {
+      const char* pszModelName = gCheat.m_pModelinfo->GetModelName(pInfo.pModel);
+
+      if(strstr(pszModelName, "models/player"))
+      {
+         IMaterial* pTexture = g_pTextureWhite;
+         IMaterial* pWallHackTexture = g_pTextureWhite2;
+
+         CBaseEntity* pModelEntity = (CBaseEntity*)gCheat.m_pEntList->GetClientEntity(pInfo.entity_index);
+         if(pModelEntity)
+         {
+            player_info_t pinfo;
+            int iLifestate = *(int*)((DWORD)pModelEntity + 0x87);
+
+            if( iLifestate == LIFE_ALIVE
+            &&  gCheat.m_pEngine->GetPlayerInfo(pInfo.entity_index, &pinfo))
+            {
+               int iTeam = *(int*)((DWORD)pModelEntity + 0x90);
+
+               if(iTeam == 2)
+               {
+                  pTexture = g_pTextureRed;
+                  pWallHackTexture = g_pTextureYellow;
+               }
+               else if(iTeam == 3)
+               {
+                  pTexture = g_pTextureBlue;
+                  pWallHackTexture = g_pTextureGreen;
+               }
+            }
+            else
+            {
+               pTexture = g_pTextureWhite;
+               pWallHackTexture = g_pTextureWhite2;
+            }
+         }
+         else
+         {
+            if(strstr(pszModelName, "models/player/t_"))
+            {
+               pTexture = g_pTextureRed;
+               pWallHackTexture = g_pTextureYellow;
+            }
+            if(strstr(pszModelName, "models/player/ct_"))
+            {
+               pTexture = g_pTextureBlue;
+               pWallHackTexture = g_pTextureGreen;
+            }
+         }
+         gCheat.m_pModelRender->ForcedMaterialOverride(pWallHackTexture);
+         gCheat.m_pModelRender->DrawModelEx(pInfo);
+         gCheat.m_pModelRender->ForcedMaterialOverride(pTexture);
+      }
+      else
+      {
+         gCheat.m_pModelRender->ForcedMaterialOverride(NULL);
+      }
+   }
+   int iRet = gCheat.m_pModelRender->DrawModelEx(pInfo);
+   gCheat.m_pModelRender->ForcedMaterialOverride(NULL);
+   gDrawModelExHook.ReHook();
+
+   return iRet;
+}

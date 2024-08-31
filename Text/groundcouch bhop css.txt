@@ -1,0 +1,6 @@
+ int *iFlags = (int*)((DWORD)pBaseEntity + 0x2E4);
+    if ( chk_flags(pCmd->buttons,IN_JUMP) )
+    {
+      if ( !chk_flags(*iFlags,FL_ONGROUND) )
+          add_flags(pCmd->buttons,IN_DUCK);
+    } 

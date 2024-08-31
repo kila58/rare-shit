@@ -1,0 +1,150 @@
+		 //##########******** C H A M S ********##########
+   if(new_Menu.CvarList.VisualVars.Chams)
+   {
+   IMaterial* rm1 =  g_pMatSystem->FindMaterial( "particle\\particle_smokegrenade",0,0,0 );
+      IMaterial* rm0 =  g_pMatSystem->FindMaterial( "particle\\particle_smokegrenade1",0,0,0 );
+      IMaterial* rm3 =  g_pMatSystem->FindMaterial( "effects\\flashbang", "ClientEffect textures",0,0 );
+      IMaterial* rm4 =  g_pMatSystem->FindMaterial( "effects\\flashbang_white", "ClientEffect textures",0,0 );
+      IMaterial* rm5 =  g_pMatSystem->FindMaterial( "models\\weapons\\v_models\\hands\\v_hands", "Model textures",0,0 );
+   IMaterial* rm2 = g_pMatSystem->FindMaterial( "SmokeStack", "ClientEffect textures" );
+   if(rm0)rm0->SetMaterialVarFlag(MATERIAL_VAR_NO_DRAW,true);
+   if(rm1)rm1->SetMaterialVarFlag(MATERIAL_VAR_NO_DRAW,true);
+   if(rm2)rm2->SetMaterialVarFlag(MATERIAL_VAR_NO_DRAW,true);
+      if(rm3)rm3->SetMaterialVarFlag(MATERIAL_VAR_NO_DRAW,true);
+      if(rm4)rm4->SetMaterialVarFlag(MATERIAL_VAR_NO_DRAW,true);
+    //model t
+ IMaterial* pT3 = g_pMatSystem->FindMaterial( "models\\player\\t_arctic\\t_arctic", "Model textures" );
+ IMaterial* pT2 = g_pMatSystem->FindMaterial( "models\\player\\t_guerilla\\t_guerilla", "Model textures" );
+ IMaterial* pT1 = g_pMatSystem->FindMaterial( "models\\player\\t_leet\\t_leet", "Model textures" );
+ IMaterial* pT = g_pMatSystem->FindMaterial( "models\\player\\t_phoenix\\t_phoenix", "Model textures" );
+ //models ct
+ IMaterial* pCT3 = g_pMatSystem->FindMaterial( "models\\player\\ct_sas\\ct_sas", "Model textures" ); 
+ IMaterial* pCT2 = g_pMatSystem->FindMaterial( "models\\player\\ct_gsg9\\ct_gsg9", "Model textures" );
+ IMaterial* pCT1 = g_pMatSystem->FindMaterial( "models\\player\\ct_gign\\ct_gign", "Model textures" );
+ IMaterial* pCT = g_pMatSystem->FindMaterial( "models\\player\\ct_urban\\ct_urban", "Model textures" );
+  ConVar *consistency = g_pCvar->FindVar("sv_consistency");
+  if ( pCT )
+  {
+   pCT->SetMaterialVarFlag( MATERIAL_VAR_IGNOREZ, true );
+   pCT->SetMaterialVarFlag( MATERIAL_VAR_ZNEARER, true );
+   pCT->SetMaterialVarFlag( MATERIAL_VAR_HALFLAMBERT, true );
+   pCT->SetMaterialVarFlag( MATERIAL_VAR_FLAT, true ); // uncomment me for more FPS  
+   consistency->SetValue(0.0f);
+  }
+  if ( pCT1 )
+  {
+   pCT1->SetMaterialVarFlag( MATERIAL_VAR_IGNOREZ, true );
+   pCT1->SetMaterialVarFlag( MATERIAL_VAR_ZNEARER, true );
+   pCT1->SetMaterialVarFlag( MATERIAL_VAR_HALFLAMBERT, true );
+   pCT1->SetMaterialVarFlag( MATERIAL_VAR_FLAT, true ); // uncomment me for more FPS    
+  }
+  if ( pCT2 )
+  {
+   pCT2->SetMaterialVarFlag( MATERIAL_VAR_IGNOREZ, true );
+   pCT2->SetMaterialVarFlag( MATERIAL_VAR_ZNEARER, true );
+   pCT2->SetMaterialVarFlag( MATERIAL_VAR_HALFLAMBERT, true );
+   pCT2->SetMaterialVarFlag( MATERIAL_VAR_FLAT, true ); // uncomment me for more FPS    
+  }
+  if ( pCT3 )
+  {
+   pCT3->SetMaterialVarFlag( MATERIAL_VAR_IGNOREZ, true );
+   pCT3->SetMaterialVarFlag( MATERIAL_VAR_ZNEARER, true );
+   pCT3->SetMaterialVarFlag( MATERIAL_VAR_HALFLAMBERT, true );
+   pCT3->SetMaterialVarFlag( MATERIAL_VAR_FLAT, true ); // uncomment me for more FPS    
+  }
+
+  if ( pT )
+  {
+   pT->SetMaterialVarFlag( MATERIAL_VAR_IGNOREZ, true );
+   pT->SetMaterialVarFlag( MATERIAL_VAR_ZNEARER, true );
+   pT->SetMaterialVarFlag( MATERIAL_VAR_HALFLAMBERT, true );
+   pT->SetMaterialVarFlag( MATERIAL_VAR_FLAT, true ); // uncomment me for more FPS    
+  }
+  if ( pT1 )
+  {
+   pT1->SetMaterialVarFlag( MATERIAL_VAR_IGNOREZ, true );
+   pT1->SetMaterialVarFlag( MATERIAL_VAR_ZNEARER, true );
+   pT1->SetMaterialVarFlag( MATERIAL_VAR_HALFLAMBERT, true );
+   pT1->SetMaterialVarFlag( MATERIAL_VAR_FLAT, true ); // uncomment me for more FPS
+  }
+  if ( pT2 )
+  {
+   pT2->SetMaterialVarFlag( MATERIAL_VAR_IGNOREZ, true );
+   pT2->SetMaterialVarFlag( MATERIAL_VAR_ZNEARER, true );
+   pT2->SetMaterialVarFlag( MATERIAL_VAR_HALFLAMBERT, true );
+   pT2->SetMaterialVarFlag( MATERIAL_VAR_FLAT, true ); // uncomment me for more FPS   
+  }
+  if ( pT3 )
+  {
+   pT3->SetMaterialVarFlag( MATERIAL_VAR_IGNOREZ, true );
+   pT3->SetMaterialVarFlag( MATERIAL_VAR_ZNEARER, true );
+   pT3->SetMaterialVarFlag( MATERIAL_VAR_HALFLAMBERT, true );
+   pT3->SetMaterialVarFlag( MATERIAL_VAR_FLAT, true ); // uncomment me for more FPS
+  }
+   }
+   else
+   {
+   IMaterial* rm1 =  g_pMatSystem->FindMaterial( "particle\\particle_smokegrenade",0,0,0 );
+      IMaterial* rm0 =  g_pMatSystem->FindMaterial( "particle\\particle_smokegrenade1",0,0,0 );
+      IMaterial* rm3 =  g_pMatSystem->FindMaterial( "effects\\flashbang", "ClientEffect textures",0,0 );
+      IMaterial* rm4 =  g_pMatSystem->FindMaterial( "effects\\flashbang_white", "ClientEffect textures",0,0 );
+      IMaterial* rm5 =  g_pMatSystem->FindMaterial( "models\\weapons\\v_models\\hands\\v_hands", "Model textures",0,0 );
+   IMaterial* rm2 = g_pMatSystem->FindMaterial( "SmokeStack", "ClientEffect textures" );
+   if(rm0)rm0->SetMaterialVarFlag(MATERIAL_VAR_NO_DRAW,false);
+   if(rm1)rm1->SetMaterialVarFlag(MATERIAL_VAR_NO_DRAW,false);
+   if(rm2)rm2->SetMaterialVarFlag(MATERIAL_VAR_NO_DRAW,false);
+      if(rm3)rm3->SetMaterialVarFlag(MATERIAL_VAR_NO_DRAW,false);
+      if(rm4)rm4->SetMaterialVarFlag(MATERIAL_VAR_NO_DRAW,false);
+    //model t
+ IMaterial* pT3 = g_pMatSystem->FindMaterial( "models\\player\\t_arctic\\t_arctic", "Model textures" );
+ IMaterial* pT2 = g_pMatSystem->FindMaterial( "models\\player\\t_guerilla\\t_guerilla", "Model textures" );
+ IMaterial* pT1 = g_pMatSystem->FindMaterial( "models\\player\\t_leet\\t_leet", "Model textures" );
+ IMaterial* pT = g_pMatSystem->FindMaterial( "models\\player\\t_phoenix\\t_phoenix", "Model textures" );
+ //models ct
+ IMaterial* pCT3 = g_pMatSystem->FindMaterial( "models\\player\\ct_sas\\ct_sas", "Model textures" ); 
+ IMaterial* pCT2 = g_pMatSystem->FindMaterial( "models\\player\\ct_gsg9\\ct_gsg9", "Model textures" );
+ IMaterial* pCT1 = g_pMatSystem->FindMaterial( "models\\player\\ct_gign\\ct_gign", "Model textures" );
+ IMaterial* pCT = g_pMatSystem->FindMaterial( "models\\player\\ct_urban\\ct_urban", "Model textures" );
+  ConVar *consistency = g_pCvar->FindVar("sv_consistency");
+  if ( pCT )
+  {
+   pCT->SetMaterialVarFlag( MATERIAL_VAR_IGNOREZ, false );
+   pCT->SetMaterialVarFlag( MATERIAL_VAR_ZNEARER, false );
+   pCT->SetMaterialVarFlag( MATERIAL_VAR_HALFLAMBERT, false );
+   pCT->SetMaterialVarFlag( MATERIAL_VAR_FLAT, false ); // uncomment me for more FPS  
+   consistency->SetValue(0.0f);
+  }
+  if ( pCT1 )
+  {
+   pCT1->SetMaterialVarFlag( MATERIAL_VAR_IGNOREZ, false );
+   pCT1->SetMaterialVarFlag( MATERIAL_VAR_ZNEARER, false );
+   pCT1->SetMaterialVarFlag( MATERIAL_VAR_HALFLAMBERT, false );
+   pCT1->SetMaterialVarFlag( MATERIAL_VAR_FLAT, false ); // uncomment me for more FPS    
+  }
+  if ( pCT2 )
+  {
+   pCT2->SetMaterialVarFlag( MATERIAL_VAR_IGNOREZ, false );
+   pCT2->SetMaterialVarFlag( MATERIAL_VAR_ZNEARER, false );
+   pCT2->SetMaterialVarFlag( MATERIAL_VAR_HALFLAMBERT, false );
+   pCT2->SetMaterialVarFlag( MATERIAL_VAR_FLAT, false ); // uncomment me for more FPS    
+  }
+  if ( pT3 )
+  {
+   pT3->SetMaterialVarFlag( MATERIAL_VAR_IGNOREZ, false );
+   pT3->SetMaterialVarFlag( MATERIAL_VAR_ZNEARER, false );
+   pT3->SetMaterialVarFlag( MATERIAL_VAR_HALFLAMBERT, false );
+   pT3->SetMaterialVarFlag( MATERIAL_VAR_FLAT, false ); // uncomment me for more FPS
+  }
+   }
+}
+ //NoHands
+  if(new_Menu.CvarList.VisualVars.NoHands)
+  {
+   IMaterial* vhands  = g_pMatSystem->FindMaterial( "models\\weapons\\v_models\\hands\\v_hands","Model textures");
+            vhands->SetMaterialVarFlag( MATERIAL_VAR_NO_DRAW, true ); //on
+  }
+  else
+  {
+   IMaterial* vhands  = g_pMatSystem->FindMaterial( "models\\weapons\\v_models\\hands\\v_hands","Model textures");
+            vhands->SetMaterialVarFlag( MATERIAL_VAR_NO_DRAW, false ); //off
+  }

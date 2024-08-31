@@ -1,0 +1,8 @@
+bool cAimbot::KnifeBot ( Vector& vecAbsOrigin, Vector& vecEndPos, CBaseEntity *pBaseEntity )
+{ 
+   float flDist = GetDistance(vecEndPos, vecAbsOrigin);
+   if(flDist < 6.7)
+      return true;
+
+   return fase;
+}

@@ -1,0 +1,149 @@
+void  cCAimbot::AimAtFriendly/*Except not really :P*/( CUserCmd* c )
+{
+   if(!HalFLife2.m_pEngine->IsInGame()   || HalFLife2.m_pEngine->IsHLTV() ||   !HalFLife2.m_pMyPlayer->BaseEnt() )
+      return;
+   C_BaseCombatWeapon*   m_pWeapon =   HalFLife2.m_pNeeded->GetBaseCombatActiveWeapon ( HalFLife2.m_pMyPlayer->BaseEnt() );
+
+   m_nTargetz =   -1;
+   Vector aimOrg,pOrg,delta;
+   QAngle viewAngles;
+   float distance = 999999.0f,latency = HalFLife2.m_pEngine->GetNetChannelInfo()->GetLatency(FLOW_OUTGOING);
+
+   for(int   index =   0;index   < HalFLife2.m_pEngine->GetMaxClients();index++){
+      IClientEntity* ClientEntity   = HalFLife2.m_pEntList->GetClientEntity( index );
+      if (ClientEntity ==   NULL
+         ||ClientEntity->IsDormant())
+         continue;
+      CBaseEntity* pBaseEntity = ClientEntity->GetBaseEntity();
+      int   *pdwHealth = (int*)   ( (DWORD)pBaseEntity + (DWORD)0xDA4   );
+      int   *lifestate = (int*)   ( (   DWORD )pBaseEntity + ( DWORD )0x87 );
+      if(m_nTargetz > -1)
+         continue;
+      if(index ==   HalFLife2.m_pEngine->GetLocalPlayer())
+         continue;
+      if((   pBaseEntity->GetTeamNumber() ==   !HalFLife2.m_pMyPlayer->BaseEnt()->GetTeamNumber()))
+         continue;
+      if(   *pdwHealth < 0 )
+         continue;
+      if(!*lifestate   == LIFE_ALIVE)
+         continue;
+      if(!GetBonePosition( 14 , vPlayer, c->viewangles, index ))
+         continue;
+      if(!GetVisible(   HalFLife2.m_pMyPlayer->BaseEnt()->EyePosition(), vPlayer, pBaseEntity ))
+         continue;
+      if ( flBestDist   < flGetDistance( vPlayer) )
+         continue;
+      flBestDist = flGetDistance(   vPlayer);   
+
+
+      m_nTargetz =   index;
+      Vector vDeltaOrigin   = vPlayer -   vPlayer;   
+      flBestDist = gESP.flGetDistance(  HalFLife2.m_pMyPlayer->BaseEnt()->GetAbsOrigin() ,  vPlayer );
+      float fLatency = HalFLife2.m_pEngine->GetNetChannelInfo()->GetLatency( FLOW_OUTGOING );
+      vDeltaOrigin[0]   *= fLatency;
+      vDeltaOrigin[1]   *= fLatency;
+      vDeltaOrigin[2]   *= fLatency;
+      PredictedTargetPosition   = vPlayer +   vDeltaOrigin;
+      if(*pdwHealth < 1)
+         continue;
+      if(m_nTarget > -1)
+      {
+         DropTargetz();
+         return;
+      }
+   }
+   int iSpeed = 0;
+
+   Vector vVelocity = HalFLife2.m_pMyPlayer->BaseEnt()->m_vecVelocity;
+   index = HalFLife2.m_pEngine->GetLocalPlayer();
+
+   if (vVelocity.IsLengthLessThan(1))            
+      iSpeed = 0;
+   else                                  
+      iSpeed = (int)vVelocity.Length2D();
+   //////////////////////////GHETTO FIX//////////////
+   if(c->buttons == IN_ATTACK)
+   {
+      DropTargetz();
+      return;
+   }
+   //if(Cvars.stridebotjump && (m_nTargetz > -1 && (iSpeed == Cvars.speedforjumpbot || iSpeed <= Cvars.speedforjumpbot)))
+   if(Cvars.stridebotjump && (m_nTargetz > -1 && (iSpeed < Cvars.speedforjumpbot)))
+      c->buttons = IN_JUMP;
+   if((Cvars.aim_strideafkdisable) && (m_nTargetz > -1 && iSpeed == 0))
+   {
+      DropTargetz();
+      return;
+   }   
+   //////////////////////////////////////////////////
+   CalcAnglez( HalFLife2.m_pMyPlayer->BaseEnt()->EyePosition(),   PredictedTargetPosition, c->viewangles );
+   HalFLife2.m_pEngine->SetViewAngles(   c->viewangles );
+   DropTargetz();
+   return;
+
+}
+
+void cStride::Walk( CUserCmd* cmd )
+{
+   player_info_t pInfo;
+   int index;
+   if (!HalFLife2.m_pEngine->IsInGame())
+      return;
+   if ( !HalFLife2.m_pMyPlayer->BaseEnt() )
+      return;
+   Vector vVelocity = HalFLife2.m_pMyPlayer->BaseEnt()->m_vecVelocity;
+   index = HalFLife2.m_pEngine->GetLocalPlayer();
+   IClientEntity* ClientEntity = HalFLife2.m_pEntList->GetClientEntity( index );
+   C_BaseCombatWeapon* m_pWeapon = HalFLife2.m_pNeeded->GetBaseCombatActiveWeapon ( HalFLife2.m_pMyPlayer->BaseEnt() );
+   CBaseEntity* pBaseEntity = ClientEntity->GetBaseEntity();
+   int *pdwHealth = (int*) ( (DWORD)pBaseEntity + (DWORD)0xDA4 );
+   int *lifestate = (int*) ( ( DWORD )pBaseEntity + ( DWORD )0x87 );
+   //if(GetAsyncKeyState('S')) // This makes you stop walking forward
+   //   return;
+   if(*pdwHealth < 1)
+      return;
+   if(!*lifestate  == LIFE_ALIVE )
+      return;
+   if(!HalFLife2.m_pEngine->GetLocalPlayer())
+      return;
+   ////////////////////////////////////////////////Ghetto fix
+   if ( !Cvars.stridebot && (GetAsyncKeyState('W')))
+   {
+      HalFLife2.m_pEngine->ExecuteClientCmd("+forward");
+      return;
+   }
+   else if( !Cvars.stridebot && !(GetAsyncKeyState('W')))
+   {
+      HalFLife2.m_pEngine->ExecuteClientCmd("-forward");
+      return;
+   }
+   if((GetAsyncKeyState('S'))) // This makes you walk backward + disables you from walking forward
+   {
+      HalFLife2.m_pEngine->ExecuteClientCmd("-forward");
+      return;
+   }
+   ////////////////////////////////////////////////////
+   int iSpeed = 0;
+
+   if (vVelocity.IsLengthLessThan(1))            
+      iSpeed = 0;
+   else                                  
+      iSpeed = (int)vVelocity.Length2D();
+   HalFLife2.m_pEngine->ExecuteClientCmd("+forward");
+   if(((iSpeed < Cvars.speedforadjust) && Cvars.strideadjust))
+   {
+      if( (Cvars.aim_stride) && (!Cvars.disablewhilebotting))
+      {
+         return;
+      }
+      //if(Cvars.stridejump)
+      //   cmd->buttons = IN_JUMP;
+      cmd->viewangles.y = cmd->viewangles.y+Cvars.strideadjusty;
+      cmd->viewangles.x = cmd->viewangles.x+Cvars.strideadjustx;
+      cmd->viewangles.z = cmd->viewangles.z+Cvars.strideadjustz;
+      HalFLife2.m_pEngine->SetViewAngles(   cmd->viewangles );
+
+   }
+   else if (((iSpeed < Cvars.speedforjump) && Cvars.stridejump))
+      cmd->buttons = IN_JUMP;
+}

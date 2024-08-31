@@ -1,0 +1,397 @@
+		//##########******** C H A M S ********##########
+	  if(new_Menu.CvarList.VisualVars.Chams)
+	  {
+	  IMaterial* rm1	=  g_pMatSystem->FindMaterial( "particle\\particle_smokegrenade",0,0,0 );
+      IMaterial* rm0	=  g_pMatSystem->FindMaterial( "particle\\particle_smokegrenade1",0,0,0 );
+      IMaterial* rm3	=  g_pMatSystem->FindMaterial( "effects\\flashbang", "ClientEffect textures",0,0 );
+      IMaterial* rm4	=  g_pMatSystem->FindMaterial( "effects\\flashbang_white", "ClientEffect textures",0,0 );
+      IMaterial* rm5	=  g_pMatSystem->FindMaterial( "models\\weapons\\v_models\\hands\\v_hands", "Model textures",0,0 );
+	  IMaterial* rm2 = g_pMatSystem->FindMaterial( "SmokeStack", "ClientEffect textures" );
+	  if(rm0)rm0->SetMaterialVarFlag(MATERIAL_VAR_NO_DRAW,true);
+	  if(rm1)rm1->SetMaterialVarFlag(MATERIAL_VAR_NO_DRAW,true);
+	  if(rm2)rm2->SetMaterialVarFlag(MATERIAL_VAR_NO_DRAW,true);
+      if(rm3)rm3->SetMaterialVarFlag(MATERIAL_VAR_NO_DRAW,true);
+      if(rm4)rm4->SetMaterialVarFlag(MATERIAL_VAR_NO_DRAW,true);
+	   //model t
+	IMaterial* pT3 = g_pMatSystem->FindMaterial( "models\\player\\t_arctic\\t_arctic", "Model textures" );
+	IMaterial* pT2 = g_pMatSystem->FindMaterial( "models\\player\\t_guerilla\\t_guerilla", "Model textures" );
+	IMaterial* pT1 = g_pMatSystem->FindMaterial( "models\\player\\t_leet\\t_leet", "Model textures" );
+	IMaterial* pT = g_pMatSystem->FindMaterial( "models\\player\\t_phoenix\\t_phoenix", "Model textures" );
+	//models ct
+	IMaterial* pCT3 = g_pMatSystem->FindMaterial( "models\\player\\ct_sas\\ct_sas", "Model textures" );	
+	IMaterial* pCT2 = g_pMatSystem->FindMaterial( "models\\player\\ct_gsg9\\ct_gsg9", "Model textures" );
+	IMaterial* pCT1 = g_pMatSystem->FindMaterial( "models\\player\\ct_gign\\ct_gign", "Model textures" );
+	IMaterial* pCT = g_pMatSystem->FindMaterial( "models\\player\\ct_urban\\ct_urban", "Model textures" );
+		ConVar *consistency = g_pCvar->FindVar("sv_consistency");
+		if ( pCT )
+		{
+			pCT->SetMaterialVarFlag( MATERIAL_VAR_IGNOREZ, true );
+			pCT->SetMaterialVarFlag( MATERIAL_VAR_ZNEARER, true );
+			pCT->SetMaterialVarFlag( MATERIAL_VAR_HALFLAMBERT, true );
+			pCT->SetMaterialVarFlag( MATERIAL_VAR_FLAT, true ); // uncomment me for more FPS		
+			consistency->SetValue(0.0f);
+		}
+		if ( pCT1 )
+		{
+			pCT1->SetMaterialVarFlag( MATERIAL_VAR_IGNOREZ, true );
+			pCT1->SetMaterialVarFlag( MATERIAL_VAR_ZNEARER, true );
+			pCT1->SetMaterialVarFlag( MATERIAL_VAR_HALFLAMBERT, true );
+			pCT1->SetMaterialVarFlag( MATERIAL_VAR_FLAT, true ); // uncomment me for more FPS				
+		}
+		if ( pCT2 )
+		{
+			pCT2->SetMaterialVarFlag( MATERIAL_VAR_IGNOREZ, true );
+			pCT2->SetMaterialVarFlag( MATERIAL_VAR_ZNEARER, true );
+			pCT2->SetMaterialVarFlag( MATERIAL_VAR_HALFLAMBERT, true );
+			pCT2->SetMaterialVarFlag( MATERIAL_VAR_FLAT, true ); // uncomment me for more FPS				
+		}
+		if ( pCT3 )
+		{
+			pCT3->SetMaterialVarFlag( MATERIAL_VAR_IGNOREZ, true );
+			pCT3->SetMaterialVarFlag( MATERIAL_VAR_ZNEARER, true );
+			pCT3->SetMaterialVarFlag( MATERIAL_VAR_HALFLAMBERT, true );
+			pCT3->SetMaterialVarFlag( MATERIAL_VAR_FLAT, true ); // uncomment me for more FPS				
+		}
+
+		if ( pT )
+		{
+			pT->SetMaterialVarFlag( MATERIAL_VAR_IGNOREZ, true );
+			pT->SetMaterialVarFlag( MATERIAL_VAR_ZNEARER, true );
+			pT->SetMaterialVarFlag( MATERIAL_VAR_HALFLAMBERT, true );
+			pT->SetMaterialVarFlag( MATERIAL_VAR_FLAT, true ); // uncomment me for more FPS				
+		}
+		if ( pT1 )
+		{
+			pT1->SetMaterialVarFlag( MATERIAL_VAR_IGNOREZ, true );
+			pT1->SetMaterialVarFlag( MATERIAL_VAR_ZNEARER, true );
+			pT1->SetMaterialVarFlag( MATERIAL_VAR_HALFLAMBERT, true );
+			pT1->SetMaterialVarFlag( MATERIAL_VAR_FLAT, true ); // uncomment me for more FPS
+		}
+		if ( pT2 )
+		{
+			pT2->SetMaterialVarFlag( MATERIAL_VAR_IGNOREZ, true );
+			pT2->SetMaterialVarFlag( MATERIAL_VAR_ZNEARER, true );
+			pT2->SetMaterialVarFlag( MATERIAL_VAR_HALFLAMBERT, true );
+			pT2->SetMaterialVarFlag( MATERIAL_VAR_FLAT, true ); // uncomment me for more FPS			
+		}
+		if ( pT3 )
+		{
+			pT3->SetMaterialVarFlag( MATERIAL_VAR_IGNOREZ, true );
+			pT3->SetMaterialVarFlag( MATERIAL_VAR_ZNEARER, true );
+			pT3->SetMaterialVarFlag( MATERIAL_VAR_HALFLAMBERT, true );
+			pT3->SetMaterialVarFlag( MATERIAL_VAR_FLAT, true ); // uncomment me for more FPS
+		}
+	  }
+	  else
+	  {
+	  IMaterial* rm1	=  g_pMatSystem->FindMaterial( "particle\\particle_smokegrenade",0,0,0 );
+      IMaterial* rm0	=  g_pMatSystem->FindMaterial( "particle\\particle_smokegrenade1",0,0,0 );
+      IMaterial* rm3	=  g_pMatSystem->FindMaterial( "effects\\flashbang", "ClientEffect textures",0,0 );
+      IMaterial* rm4	=  g_pMatSystem->FindMaterial( "effects\\flashbang_white", "ClientEffect textures",0,0 );
+      IMaterial* rm5	=  g_pMatSystem->FindMaterial( "models\\weapons\\v_models\\hands\\v_hands", "Model textures",0,0 );
+	  IMaterial* rm2 = g_pMatSystem->FindMaterial( "SmokeStack", "ClientEffect textures" );
+	  if(rm0)rm0->SetMaterialVarFlag(MATERIAL_VAR_NO_DRAW,false);
+	  if(rm1)rm1->SetMaterialVarFlag(MATERIAL_VAR_NO_DRAW,false);
+	  if(rm2)rm2->SetMaterialVarFlag(MATERIAL_VAR_NO_DRAW,false);
+      if(rm3)rm3->SetMaterialVarFlag(MATERIAL_VAR_NO_DRAW,false);
+      if(rm4)rm4->SetMaterialVarFlag(MATERIAL_VAR_NO_DRAW,false);
+	   //model t
+	IMaterial* pT3 = g_pMatSystem->FindMaterial( "models\\player\\t_arctic\\t_arctic", "Model textures" );
+	IMaterial* pT2 = g_pMatSystem->FindMaterial( "models\\player\\t_guerilla\\t_guerilla", "Model textures" );
+	IMaterial* pT1 = g_pMatSystem->FindMaterial( "models\\player\\t_leet\\t_leet", "Model textures" );
+	IMaterial* pT = g_pMatSystem->FindMaterial( "models\\player\\t_phoenix\\t_phoenix", "Model textures" );
+	//models ct
+	IMaterial* pCT3 = g_pMatSystem->FindMaterial( "models\\player\\ct_sas\\ct_sas", "Model textures" );	
+	IMaterial* pCT2 = g_pMatSystem->FindMaterial( "models\\player\\ct_gsg9\\ct_gsg9", "Model textures" );
+	IMaterial* pCT1 = g_pMatSystem->FindMaterial( "models\\player\\ct_gign\\ct_gign", "Model textures" );
+	IMaterial* pCT = g_pMatSystem->FindMaterial( "models\\player\\ct_urban\\ct_urban", "Model textures" );
+		ConVar *consistency = g_pCvar->FindVar("sv_consistency");
+		if ( pCT )
+		{
+			pCT->SetMaterialVarFlag( MATERIAL_VAR_IGNOREZ, false );
+			pCT->SetMaterialVarFlag( MATERIAL_VAR_ZNEARER, false );
+			pCT->SetMaterialVarFlag( MATERIAL_VAR_HALFLAMBERT, false );
+			pCT->SetMaterialVarFlag( MATERIAL_VAR_FLAT, false ); // uncomment me for more FPS		
+			consistency->SetValue(0.0f);
+		}
+		if ( pCT1 )
+		{
+			pCT1->SetMaterialVarFlag( MATERIAL_VAR_IGNOREZ, false );
+			pCT1->SetMaterialVarFlag( MATERIAL_VAR_ZNEARER, false );
+			pCT1->SetMaterialVarFlag( MATERIAL_VAR_HALFLAMBERT, false );
+			pCT1->SetMaterialVarFlag( MATERIAL_VAR_FLAT, false ); // uncomment me for more FPS				
+		}
+		if ( pCT2 )
+		{
+			pCT2->SetMaterialVarFlag( MATERIAL_VAR_IGNOREZ, false );
+			pCT2->SetMaterialVarFlag( MATERIAL_VAR_ZNEARER, false );
+			pCT2->SetMaterialVarFlag( MATERIAL_VAR_HALFLAMBERT, false );
+			pCT2->SetMaterialVarFlag( MATERIAL_VAR_FLAT, false ); // uncomment me for more FPS				
+		}
+		if ( pCT3 )
+		{
+			pCT3->SetMaterialVarFlag( MATERIAL_VAR_IGNOREZ, false );
+			pCT3->SetMaterialVarFlag( MATERIAL_VAR_ZNEARER, false );
+			pCT3->SetMaterialVarFlag( MATERIAL_VAR_HALFLAMBERT, false );
+			pCT3->SetMaterialVarFlag( MATERIAL_VAR_FLAT, false ); // uncomment me for more FPS				
+		}
+
+		if ( pT )
+		{
+			pT->SetMaterialVarFlag( MATERIAL_VAR_IGNOREZ, false );
+			pT->SetMaterialVarFlag( MATERIAL_VAR_ZNEARER, false );
+			pT->SetMaterialVarFlag( MATERIAL_VAR_HALFLAMBERT, false );
+			pT->SetMaterialVarFlag( MATERIAL_VAR_FLAT, false ); // uncomment me for more FPS				
+		}
+		if ( pT1 )
+		{
+			pT1->SetMaterialVarFlag( MATERIAL_VAR_IGNOREZ, false );
+			pT1->SetMaterialVarFlag( MATERIAL_VAR_ZNEARER, false );
+			pT1->SetMaterialVarFlag( MATERIAL_VAR_HALFLAMBERT, false );
+			pT1->SetMaterialVarFlag( MATERIAL_VAR_FLAT, false ); // uncomment me for more FPS
+		}
+		if ( pT2 )
+		{
+			pT2->SetMaterialVarFlag( MATERIAL_VAR_IGNOREZ, false );
+			pT2->SetMaterialVarFlag( MATERIAL_VAR_ZNEARER, false );
+			pT2->SetMaterialVarFlag( MATERIAL_VAR_HALFLAMBERT, false );
+			pT2->SetMaterialVarFlag( MATERIAL_VAR_FLAT, false ); // uncomment me for more FPS			
+		}
+		if ( pT3 )
+		{
+			pT3->SetMaterialVarFlag( MATERIAL_VAR_IGNOREZ, false );
+			pT3->SetMaterialVarFlag( MATERIAL_VAR_ZNEARER, false );
+			pT3->SetMaterialVarFlag( MATERIAL_VAR_HALFLAMBERT, false );
+			pT3->SetMaterialVarFlag( MATERIAL_VAR_FLAT, false ); // uncomment me for more FPS
+		}
+	  }
+
+		//NoHands
+		if(new_Menu.CvarList.RemovalsVars.NoHands)
+		{
+			IMaterial* vhands  = g_pMatSystem->FindMaterial( "models\\weapons\\v_models\\hands\\v_hands","Model textures");
+            vhands->SetMaterialVarFlag( MATERIAL_VAR_NO_DRAW, true ); //on
+		}
+		else
+		{
+			IMaterial* vhands  = g_pMatSystem->FindMaterial( "models\\weapons\\v_models\\hands\\v_hands","Model textures");
+            vhands->SetMaterialVarFlag( MATERIAL_VAR_NO_DRAW, false ); //off
+		}
+			
+
+
+     {
+		 C_BaseEntity*pLocal = (C_BaseEntity*)g_pEntList->GetClientEntity( g_pEngine->GetLocalPlayer() );
+				DWORD colour = COLORCODE(255,255,255,255);
+		for(int index = 1; index <= g_pEngine->GetMaxClients(); index++)
+		{
+		if (g_pEngine->IsInGame())
+		{
+		if( index != g_pEngine->GetLocalPlayer() )
+		{
+		C_BaseEntity* pBaseEnt = gNeeded.GetEntityByIndex(index);
+		if(pBaseEnt == NULL)
+			continue;
+		if( pBaseEnt->index == pLocal->index )
+			continue;
+		if( stricmp( pBaseEnt->GetClientClass()->GetName(), "CCSPlayer" ) == 0 ){
+		player_info_t pinfo;
+		int health = *(int*)((DWORD)pBaseEnt + m_offsets.dw_m_iHeahlt());
+		if( health <= 0 )
+			continue;
+		if(!IsAlive(pBaseEnt)) 
+			continue;
+		if(!g_pEngine->GetPlayerInfo(pBaseEnt->index,&pinfo))
+			continue;
+		if(pBaseEnt->IsDormant())
+			continue;
+		Vector m_vecWorld,vScreen;
+		gNeeded.GetWorldSpaceCenter(pBaseEnt,m_vecWorld);
+		if(gNeeded.WorldToScreen(m_vecWorld,vScreen)){
+		int teamnum = *(int*)((DWORD)pBaseEnt + m_offsets.dw_m_iteamnum());
+		color32* Model = (color32*)((DWORD)pBaseEnt + (DWORD)0x58);
+		
+		if(teamnum == 3 && Model)
+		{
+Model->r = (byte)0;
+Model->g = (byte)255;
+Model->b = (byte)255;
+Model->a = (byte)255;
+			colour = COLORCODE(0,255,255,200);
+
+		}
+		else if(teamnum == 2 && Model)
+		{
+Model->r = (byte)255;
+Model->g = (byte)255;
+Model->b = (byte)0;
+Model->a = (byte)255;
+			colour = COLORCODE(255,255,0,200);
+		}
+		//CT CHAMS
+		if(new_Menu.CvarList.TextVars.CTChams)
+		{
+			if(teamnum == 3 && Model)
+		{
+          Model->r = (byte)0;
+          Model->g = (byte)0;
+          Model->b = (byte)255;
+          Model->a = (byte)255;
+		  colour = COLORCODE(0, 0, 255, 255);
+
+		}
+		}
+
+		//TCHAMS
+        if(new_Menu.CvarList.TextVars.TChams)
+		{
+		if(teamnum == 2 && Model)
+		{
+         Model->r = (byte)255;
+         Model->g = (byte)0;
+         Model->b = (byte)0;
+         Model->a = (byte)255;
+		 colour = COLORCODE(255, 0, 0, 255);
+		}
+		}
+		
+
+					C_BaseCombatWeapon* m_pWeapon = gNospread.GetBaseCombatActiveWeapon( pBaseEnt );
+					if ( m_pWeapon )
+					{
+						const char* szWeapon = g_pModelinfo->GetModelName ( m_pWeapon->GetModel( ) );
+
+						char TehWeapon[100];
+						char m_szPrintName[100];
+						strcpy( TehWeapon, szWeapon );
+					
+							if		( strstr( TehWeapon, "w_rif_ak47.mdl" ) )					{strcpy( m_szPrintName, "AK-47" );}
+							else if ( strstr( TehWeapon, "w_smg_tmp.mdl" ) )					{strcpy( m_szPrintName, "TMP" );}
+							else if ( strstr( TehWeapon, "w_rif_aug.mdl" ) )					{strcpy( m_szPrintName, "AUG" );}
+							else if ( strstr( TehWeapon, "w_snip_g3sg1.mdl" ) )					{strcpy( m_szPrintName, "G3SG1" );}
+							else if ( strstr( TehWeapon, "w_shot_m3super90.mdl" ) )				{strcpy( m_szPrintName, "M3" );}
+							else if ( strstr( TehWeapon, "w_smg_mac10.mdl" ) )					{strcpy( m_szPrintName, "Mac10" );}
+							else if ( strstr( TehWeapon, "w_smg_p90.mdl" ) )					{strcpy( m_szPrintName, "P90" );}
+							else if ( strstr( TehWeapon, "w_snip_scout.mdl" ) )					{strcpy( m_szPrintName, "Scout" );}
+							else if ( strstr( TehWeapon, "w_snip_sg550.mdl" ) )					{strcpy( m_szPrintName, "SG550" );}
+							else if ( strstr( TehWeapon, "w_smg_ump45.mdl" ) )					{strcpy( m_szPrintName, "UMP45" );}
+							else if ( strstr( TehWeapon, "w_snip_awp.mdl" ) )					{strcpy( m_szPrintName, "AWP" );}
+							else if ( strstr( TehWeapon, "w_rif_famas.mdl" ) )					{strcpy( m_szPrintName, "Famas" );}
+							else if ( strstr( TehWeapon, "w_rif_galil.mdl" ) )					{strcpy( m_szPrintName, "Galil" );}
+							else if ( strstr( TehWeapon, "w_rif_m4a1_silencer.mdl" ) )			{strcpy( m_szPrintName, "M4A1 Silenced" );}
+							else if ( strstr( TehWeapon, "w_rif_m4a1.mdl" ) )					{strcpy( m_szPrintName, "M4A1" );}
+							else if ( strstr( TehWeapon, "w_smg_mp5.mdl" ) )					{strcpy( m_szPrintName, "Mp5" );}
+							else if ( strstr( TehWeapon, "w_mach_m249para.mdl" ) )				{strcpy( m_szPrintName, "M249" );}
+							else if ( strstr( TehWeapon, "w_rif_sg552.mdl" ) )					{strcpy( m_szPrintName, "SG552" );}
+							else if ( strstr( TehWeapon, "w_shot_xm1014.mdl" ) )				{strcpy( m_szPrintName, "XM1014" );}
+							else if ( strstr( TehWeapon, "w_eq_fraggrenade.mdl" ) )				{strcpy( m_szPrintName, "Frag Grenade" );}
+							else if ( strstr( TehWeapon, "w_eq_flashbang.mdl" ) )				{strcpy( m_szPrintName, "Flashbang" );}
+							else if ( strstr( TehWeapon, "w_pist_usp.mdl" ) )					{strcpy( m_szPrintName, "USP" );}
+							else if ( strstr( TehWeapon, "w_pist_usp_silencer.mdl" ) )			{strcpy( m_szPrintName, "USP-Silenced" );}
+							else if ( strstr( TehWeapon, "w_pist_glock18.mdl" ) )				{strcpy( m_szPrintName, "Glock" );}
+							else if ( strstr( TehWeapon, "w_pist_deagle.mdl" ) )				{strcpy( m_szPrintName, "Deagle" );}
+							else if ( strstr( TehWeapon, "w_knife_ct.mdl" ) )					{strcpy( m_szPrintName, "Knife" );}
+							else if ( strstr( TehWeapon, "w_knife_t.mdl" ) )					{strcpy( m_szPrintName, "Knife" );}
+							else if ( strstr( TehWeapon, "w_pist_p228.mdl" ) )					{strcpy( m_szPrintName, "P228" );}
+							else if ( strstr( TehWeapon, "w_pist_fiveseven.mdl" ) )				{strcpy( m_szPrintName, "Fiveseven" );}
+							else if ( strstr( TehWeapon, "w_eq_smokegrenade.mdl" ) )			{strcpy( m_szPrintName, "Smoke-Grenade" );}
+							else if ( strstr( TehWeapon, "w_pist_elite.mdl" ) )					{strcpy( m_szPrintName, "Dual Elites" );}
+							else if ( strstr( TehWeapon, "w_c4.mdl" ) )							{strcpy( m_szPrintName, "C4**Bomb" );}
+							if(new_Menu.CvarList.VisualVars.WeaponESP)
+							gNeeded.PrintText(vScreen.x-10, vScreen.y+20, colour, "%s", m_szPrintName );
+					}
+
+		 //draw box
+if(new_Menu.CvarList.VisualVars.BoxESP)
+DrawBoundingBox(pBaseEnt,CHEAT_BLACK,index);
+if(new_Menu.CvarList.VisualVars.Health)
+gNeeded.PrintText(vScreen.x+25, vScreen.y+17, colour, "HP [ %i ]", GetPlayerHealth(pBaseEnt)); //Health ESP -> not needed
+if(new_Menu.CvarList.VisualVars.NameESP)
+gNeeded.PrintText(vScreen.x+25, vScreen.y+5, colour, "%s", pinfo.name); //Name ESP
+if(new_Menu.CvarList.VisualVars.SteamID)
+gNeeded.PrintText(vScreen.x+25, vScreen.y+40, colour, "ID [ %s ]", pinfo.guid); //SteamID ESP -> not needed
+
+
+		//sv_cheats		
+		ConVar *sv_cheats = g_pCvar->FindVar( "sv_cheats" );
+		sv_cheats->SetValue(1);
+
+
+		//crosshair
+		//gNeeded.fillRGBA(iScreenCenter[0]-15, iScreenCenter[1], 30, 1, COLORCODE(255,0,0,255));
+		//gNeeded.fillRGBA(iScreenCenter[0], iScreenCenter[1]-15, 1, 30, COLORCODE(255,0,0,255));
+
+		//crosshair method2
+		//gNeeded.fillRGBA(iScreenCenter[0]-15, iScreenCenter[1], 30, 1, COLORCODE(255,51,255,255));
+		//gNeeded.fillRGBA(iScreenCenter[0], iScreenCenter[1]-15, 1, 30, COLORCODE(255,51,255,255));
+		
+
+		dlight_t* lpDLight = (dlight_t*)g_pEffects->CL_AllocDlight(index);
+        if ( lpDLight )
+        {
+          lpDLight->m_Direction    = pBaseEnt->GetAbsOrigin(); 
+		  lpDLight->origin         = pBaseEnt->GetAbsOrigin(); 
+            lpDLight->color.b = (byte)BLUE(colour);
+            lpDLight->color.g = (byte)GREEN(colour);
+            lpDLight->color.r = (byte)RED(colour);
+            lpDLight->color.exponent = 10.0;
+			lpDLight->m_InnerAngle = 180 - (rand() % 360); 
+			lpDLight->m_OuterAngle = 0; 
+			lpDLight->minlight = 2000.0f; 
+            lpDLight->decay = 1;
+            lpDLight->die = 20000;
+            lpDLight->radius = 105;
+        }
+		}
+		}
+		}
+		}
+		}
+	 
+for ( int index = 0; index < g_pEntList->GetHighestEntityIndex(); index++ )
+	{
+
+		if ( index == g_pEngine->GetLocalPlayer() )
+			continue;
+
+		IClientEntity* ClientEntity = (IClientEntity*)g_pEntList->GetClientEntity( index );
+
+		if ( ClientEntity == NULL || ClientEntity->IsDormant() )
+			continue;
+
+		CBaseEntity* TargetEntity = (CBaseEntity*)ClientEntity->GetBaseEntity();
+
+		if ( TargetEntity == NULL || TargetEntity->IsDormant() )
+			continue;
+		
+
+		const char* modelName = g_pModelinfo->GetModelName(TargetEntity->GetModel());
+
+		if( modelName )
+		{
+			//Starting of Weapon Entity Detection...
+			if( strstr( modelName, "w_" ) )
+			{	
+				CBaseCombatWeapon* pWeap = static_cast<CBaseCombatWeapon*>(TargetEntity);
+
+				if( pWeap )
+				{
+					Vector vWeapScreen, vWeapWorldPos;
+					gNeeded.GetWorldSpaceCenter( TargetEntity, vWeapWorldPos );
+
+					if ( gNeeded.WorldToScreen( vWeapWorldPos, vWeapScreen ) )
+					{
+						int m_iState = *(int*)((DWORD)pWeap + 0x924);
+
+						if(m_iState == WEAPON_NOT_CARRIED)
+							{
+		
+							}
+						}
+					}
+			}
+		}
+}
+}
+}
+}}

@@ -1,0 +1,24 @@
+pCmd->viewangles.x = 180;
+pCmd->viewangles.y = 205;
+
+pCmd->viewangles.x = 180;
+pCmd->viewangles.y -= 180 - pCmd->viewangles.y;
+
+
+gNeeded.fillRGBA(iScreenCenter[0]-15, iScreenCenter[1], 30, 1, COLORCODE(255,51,255,255));
+gNeeded.fillRGBA(iScreenCenter[0], iScreenCenter[1]-15, 1, 30, COLORCODE(255,51,255,255));
+		
+
+g_pMatSystemSurface->DrawSetColor(30, 30, 30, 255);
+        g_pMatSystemSurface->DrawFilledRect(iScreenCenter[0] - 16, iScreenCenter[1], iScreenCenter[0] + 16, iScreenCenter[1] + 1);
+        g_pMatSystemSurface->DrawFilledRect(iScreenCenter[0], iScreenCenter[1] - 16, iScreenCenter[0] + 1, iScreenCenter[1] + 16);
+
+        g_pMatSystemSurface->DrawSetColor(255, 255, 255, 255);
+        g_pMatSystemSurface->DrawFilledRect(iScreenCenter[0] - 12, iScreenCenter[1], iScreenCenter[0] + 12, iScreenCenter[1] + 1);
+        g_pMatSystemSurface->DrawFilledRect(iScreenCenter[0], iScreenCenter[1] - 12, iScreenCenter[0] + 1, iScreenCenter[1] + 12);
+
+        g_pMatSystemSurface->DrawSetColor(255, 0, 0, 255);
+        g_pMatSystemSurface->DrawFilledRect(iScreenCenter[0] - 8, iScreenCenter[1], iScreenCenter[0] + 8, iScreenCenter[1] + 1);
+        g_pMatSystemSurface->DrawFilledRect(iScreenCenter[0], iScreenCenter[1] - 8, iScreenCenter[0] + 1, iScreenCenter[1] + 8);
+
+		}

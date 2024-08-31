@@ -1,0 +1,16 @@
+void cMaterials::ASUS()
+{
+
+   for ( MaterialHandle_t i = g_pMatSystem->FirstMaterial(); i != g_pMatSystem->InvalidMaterial(); i = g_pMatSystem->NextMaterial( i ) )
+   {
+      IMaterial *pMaterial = g_pMatSystem->GetMaterial( i );
+
+      if ( !pMaterial )
+         continue;
+
+      if ( strstr( pMaterial->GetTextureGroupName(), "World" ) )
+         pMaterial->AlphaModulate( 0.35f );
+   }
+
+
+}

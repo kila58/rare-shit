@@ -1,0 +1,14 @@
+static bool flip = true;
+
+if ( flip )
+{
+cmd->viewangles.x = ( AntiAim_X - AntiAim_XModifier );
+cmd->viewangles.y -= ( AntiAim_Y - AntiAim_YModifier );
+flip = false;
+}
+else
+{
+cmd->viewangles.x = ( AntiAim_X + AntiAim_XModifier );
+cmd->viewangles.y -= ( AntiAim_Y + AntiAim_YModifier );
+flip = true;
+}

@@ -1,0 +1,32 @@
+<pre>void royalPub->Enhancedaim::draw_rear_view_mirror(void)
+{
+   try
+   {        
+      if( chod.get_local_player() != NULL )
+      {
+         vrect_t rect;
+         rect.x      = GUI(REARVIEWMIRROR)->x + (BORDER_SIZE >> 1);
+         rect.y      = GUI(REARVIEWMIRROR)->y + TITTLE_BAR_SIZE;
+         rect.width   = GUI(REARVIEWMIRROR)->w - BORDER_SIZE;
+         rect.height = GUI(REARVIEWMIRROR)->h - TITTLE_BAR_SIZE;
+         rect.pnext   = NULL;
+
+         CViewSetup myView;
+         royalPub->Enhancedaim::GetPlayerView(myView);//IBaseClientDLL*
+
+         CViewSetup mirrorView      = myView;
+         mirrorView.width         = rect.width;
+         mirrorView.height         = rect.height;
+         mirrorView.x            = rect.x;
+         mirrorView.y            = rect.y;
+         mirrorView.origin         = emanager.get_local_player()->GetEyesPos();
+         mirrorView.angles         = emanager.get_local_player()->GetEyesAngle();
+         mirrorView.angles.y         += 180;
+         mirrorView.fov            = 90.0f;
+         royalPub->Enhancedaim::RenderViewEx(mirrorView,0,0);//IViewRender*
+      }
+   }
+   catch (...)
+   {
+   royalPub->Enhancedaim::add_log("draw_rear_view_mirror(void) error...");
+   }

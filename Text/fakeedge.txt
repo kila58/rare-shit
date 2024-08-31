@@ -1,0 +1,3 @@
+pCmd->viewangles.x = 180.0;
+pCmd->viewangles.y = 170.0;
+	

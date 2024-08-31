@@ -1,0 +1,20 @@
+void cAimbot::PredictTarget(C_BaseEntity* pBaseEntity, Vector &vEyePos, C_BaseEntity *pMe)
+{
+        Vector vOld[65];
+   Vector vOldMe;
+   Vector vAccel[65];
+   Vector vMyAccel;
+   Vector vecEnemyVelocity = *(Vector*)((DWORD)pBaseEntity + 0xF0);
+   Vector vMyVel = *(Vector*)((DWORD)pMe + 0xF0);
+   Vector vDelta = vecEnemyVelocity - vOld[pBaseEntity->index];
+   vOld[pBaseEntity->index] = vecEnemyVelocity;
+   if(vDelta != Vector(0,0,0))
+      vAccel[pBaseEntity->index] = vDelta;
+   Vector vDeltaMe = vMyVel - vOldMe;
+   vOldMe = vMyVel;
+   if(vDeltaMe != Vector(0,0,0))
+      vMyAccel = vDeltaMe;
+
+   if(vAccel[pBaseEntity->index] != Vector(0,0,0) || vMyAccel != Vector(0,0,0))
+      m_vecPosition += ( 1 / 2 * (vAccel[pBaseEntity->index] - vMyAccel) * Square(g_pGlobals->interval_per_tick) + (vecEnemyVelocity - vMyVel) * g_pGlobals->interval_per_tick + m_vecPosition - vEyePos);
+}
