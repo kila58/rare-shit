@@ -1,0 +1,16 @@
+/*
+
+Credits Function for creating cheat.
+
+   Fami
+   NanoCat
+   Ley
+   Flawless
+   Deadlock
+   Sadistic
+
+
+
+
+
+*/
