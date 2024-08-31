@@ -1,0 +1,36 @@
+/* PrivateCvarScripting Lua Functions */
+
+Sleep(milliseconds) - wait given number of milliseconds
+IsKeyDown(key) - check if key is down (returns boolean)
+
+WriteConsole(string) - write string to game console
+
+CreateVar(name, defaultValue, flags, helpString) - create a new ConVar (returns ConVar)
+FindVar(name) - search for ConVar (returns ConVar)
+CreateCommand(name, flags, helpString) - create a new ConCommand (returns ConCommand)
+FindCommand(name) - search for ConCommand (returns ConCommand)
+
+GetFlags(ConVar) - get ConVar/ConCommand flags (returns integer)
+SetFlags(ConVar, flags) - set ConVar/ConCommand flags
+
+GetName(ConVar) - get ConVar/ConCommand name (returns string)
+SetName(ConVar, name) - set ConVar/ConCommand name
+
+GetHelpString(ConVar) - get ConVar/ConCommand help string (returns string)
+SetHelpString(ConVar, helpString) - set ConVar/ConCommand help string
+
+CC_Dispatch(ConCommand, arg string) - tokenize arg string and dispatch ConCommand
+
+CV_GetFloat(ConVar) - get ConVar value (returns float)
+CV_GetInt(ConVar) - get ConVar value (returns integer)
+CV_GetBool(ConVar) - get ConVar value (returns boolean)
+CV_GetString(ConVar) - get ConVar value (returns string)
+
+CV_SetFloat(ConVar, float) - set ConVar value
+CV_SetInt(ConVar, integer) - set ConVar value
+CV_SetString(ConVar, string) - set ConVar value
+
+CV_Revert(ConVar) - reset ConVar to default value
+CV_GetMin(ConVar) - get ConVar minimum value (returns float)
+CV_GetMax(ConVar) - get ConVar maximum value (returns float)
+CV_GetDefault(ConVar) - get ConVar default value
